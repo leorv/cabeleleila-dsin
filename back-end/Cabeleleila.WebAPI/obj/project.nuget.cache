@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "XvDtAFkkJnPNeU49VJnfZ7c+59GAtqjo8ZVpGHStwVDXU+5KfAZDwtXliNoV19aziFKRnghWxf+mNqd061GF0A==",
+  "success": true,
+  "projectFilePath": "/home/leonardo/Documentos/Source/desafio-sistema-dsin/back-end/Cabeleleila.WebAPI/Cabeleleila.WebAPI.csproj",
+  "expectedPackageFiles": [
+    "/home/leonardo/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/leonardo/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/leonardo/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/home/leonardo/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/home/leonardo/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/home/leonardo/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
