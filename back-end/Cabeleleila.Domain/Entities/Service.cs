@@ -13,7 +13,7 @@ namespace Cabeleleila.Domain.Entities
         public DateTime RequestDate { get; set; }
         public DateTime ScheduledDate { get; set; }
         public string Status { get; set; }
-        public string ClientName { get; set; }
+        public virtual User User { get; set; }
 
         public override void Validate()
         {
@@ -21,7 +21,6 @@ namespace Cabeleleila.Domain.Entities
             {
                 if (Name.Length == 0) AddValidateMessages("Serviço não possui nome.");
                 if (Status.Length == 0) AddValidateMessages("Serviço não possui status.");
-                if (ClientName.Length == 0) AddValidateMessages("Serviço não possui nome do cliente");
             }
             catch (NullReferenceException)
             {
