@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "QuickBuyDB": "Server=cabeleleila-db;Port=3306;Database=cabeleleiladb;User=root;Password=numsey;"
+    "CabeleleilaDB": "Server=localhost;Port=3306;Database=cabeleleiladb;User=root;Password=numsey;"
   }
 }

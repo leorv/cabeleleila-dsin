@@ -19,6 +19,15 @@ namespace Cabeleleila.Domain.Entities
         /// </summary>
         public virtual ICollection<Service> Services { get; set; }
 
+        public User(int id, string email, string password, string name, string lastname, bool administrator) {
+            Id = id;
+            Email = email;
+            Password = password;
+            Name = name;
+            Lastname = lastname;
+            Administrator = administrator;
+        }
+
         public override void Validate()
         {
             if (string.IsNullOrEmpty(Email)) AddValidateMessages("Não foi informado e-mail.");
