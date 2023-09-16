@@ -23,7 +23,8 @@ namespace Cabeleleila.Repository.Repositories
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            CabeleleilaContext.Set<T>().Remove(entity);
+            CabeleleilaContext.SaveChanges();
         }
 
         public void Dispose()

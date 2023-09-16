@@ -13,5 +13,15 @@ namespace Cabeleleila.Repository.Repositories
         public UserRepository(CabeleleilaContext cabeleleilaContext) : base(cabeleleilaContext)
         {
         }
+
+        public User GetUser(string email, string password) {
+            return CabeleleilaContext.Users
+                .FirstOrDefault(u => u.Email == email && u.Password == password);
+        }
+
+        public User GetByEmail(string email) {
+            return CabeleleilaContext.Users
+                .FirstOrDefault(u => u.Email == email);
+        }
     }
 }
