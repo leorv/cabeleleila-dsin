@@ -13,7 +13,6 @@ namespace Cabeleleila.Repository.Context
     {
         public CabeleleilaContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<User> Users { get; set; }
@@ -22,11 +21,12 @@ namespace Cabeleleila.Repository.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configuração para mapeamento das classes
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
             modelBuilder.ApplyConfiguration(new PaymentMethodConfiguration());
 
-            // popular a forma de pagamento
+            // Popular a forma de pagamento
             modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod()
             {
                 Id = 0,
