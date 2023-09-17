@@ -27,25 +27,25 @@ namespace Cabeleleila.Repository.Context
             modelBuilder.ApplyConfiguration(new PaymentMethodConfiguration());
 
             // Popular a forma de pagamento
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod()
-            {
-                Id = 0,
-                Name = "Não definido",
-                Description = "A forma de pagamento não foi informada, deve ser confirmada antecipadamente no local."
-            },
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod()
-            {
-                Id = 1,
-                Name = "Cartão de crédito",
-                Description = "Cartão de crédito das bandeiras mais comuns."
-            },
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod()
-            {
-                Id = 2,
-                Name = "PIX",
-                Description = "A forma preferida de pagamento da maioria dos usuários."
-            }
-            )));
+            modelBuilder.Entity<PaymentMethod>().HasData(
+                new PaymentMethod()
+                {
+                    Id = 1,
+                    Name = "Não definido",
+                    Description = "A forma de pagamento não foi informada, deve ser confirmada antecipadamente no local."
+                },
+                new PaymentMethod()
+                {
+                    Id = 2,
+                    Name = "Cartão de crédito",
+                    Description = "Cartão de crédito das bandeiras mais comuns."
+                }, new PaymentMethod()
+                {
+                    Id = 3,
+                    Name = "PIX",
+                    Description = "A forma preferida de pagamento para maioria dos usuários."
+                }
+            );
 
             base.OnModelCreating(modelBuilder);
         }

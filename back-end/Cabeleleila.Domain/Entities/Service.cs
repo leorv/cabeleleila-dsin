@@ -16,16 +16,6 @@ namespace Cabeleleila.Domain.Entities
         public int UserId { get; set; }
         public virtual User User { get; set; }
 
-        public Service(int id, string name, decimal price, DateTime requestDate, DateTime scheduleDate, string status, int userId) {
-            Id = id;
-            Name = name;
-            Price = price;
-            RequestDate = requestDate;
-            ScheduledDate = scheduleDate;
-            Status = status;
-            UserId = userId;
-        }
-
         public override void Validate()
         {
             try
