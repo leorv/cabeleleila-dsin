@@ -129,13 +129,11 @@ namespace Cabeleleila.Repository.Migrations
 
             modelBuilder.Entity("Cabeleleila.Domain.Entities.Service", b =>
                 {
-                    b.HasOne("Cabeleleila.Domain.Entities.User", "User")
+                    b.HasOne("Cabeleleila.Domain.Entities.User", null)
                         .WithMany("Services")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cabeleleila.Domain.Entities.User", b =>

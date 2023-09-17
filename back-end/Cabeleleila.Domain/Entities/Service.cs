@@ -14,7 +14,6 @@ namespace Cabeleleila.Domain.Entities
         public DateTime ScheduledDate { get; set; }
         public string Status { get; set; }
         public int UserId { get; set; }
-        public virtual User User { get; set; }
 
         public override void Validate()
         {

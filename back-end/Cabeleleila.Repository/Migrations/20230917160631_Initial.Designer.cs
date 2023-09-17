@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cabeleleila.Repository.Migrations
 {
     [DbContext(typeof(CabeleleilaContext))]
-    [Migration("20230917134819_Initial")]
+    [Migration("20230917160631_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -131,13 +131,11 @@ namespace Cabeleleila.Repository.Migrations
 
             modelBuilder.Entity("Cabeleleila.Domain.Entities.Service", b =>
                 {
-                    b.HasOne("Cabeleleila.Domain.Entities.User", "User")
+                    b.HasOne("Cabeleleila.Domain.Entities.User", null)
                         .WithMany("Services")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cabeleleila.Domain.Entities.User", b =>

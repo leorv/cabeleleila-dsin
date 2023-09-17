@@ -34,8 +34,7 @@ namespace Cabeleleila.Repository.Config
                 .HasColumnType("bit")
                 .HasDefaultValue(false);
 
-            builder.HasMany(u => u.Services)
-                .WithOne(s => s.User);
+            builder.HasMany(u => u.Services);
         }
     }
 }

@@ -73,10 +73,12 @@ namespace Cabeleleila.WebAPI.Controllers
         {
             try
             {
-                User existingUser = _userRepository.GetUser(user.Email, user.Password);
+                User existingUser = _userRepository.GetById(id);
 
                 existingUser.Name = user.Name;
                 existingUser.Lastname = user.Lastname;
+                existingUser.Email = user.Email;
+                existingUser.Password = user.Password;
 
                 _userRepository.Update(existingUser);
                 return NoContent();

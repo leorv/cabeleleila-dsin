@@ -72,6 +72,9 @@ namespace Cabeleleila.WebAPI.Controllers
 
                 existingService.Name = service.Name;
                 existingService.Status = service.Status;
+                existingService.Price = service.Price;
+                existingService.ScheduledDate = service.ScheduledDate;
+
 
                 _serviceRepository.Update(existingService);
                 return NoContent();
