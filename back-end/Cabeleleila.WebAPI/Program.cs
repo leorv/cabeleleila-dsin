@@ -1,6 +1,7 @@
 using Cabeleleila.Domain.Contracts;
 using Cabeleleila.Repository.Context;
 using Cabeleleila.Repository.Repositories;
+using Castle.Core.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -26,6 +27,18 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 
+var allowOrigins = builder.Configuration.GetValue<string>("AllowOrigins");
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("NovaPolitica", app =>
+    {
+        app.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 
@@ -38,6 +51,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("NovaPolitica");
 
 app.UseAuthorization();
 
