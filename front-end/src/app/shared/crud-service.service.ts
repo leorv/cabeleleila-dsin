@@ -19,7 +19,7 @@ export class CrudService<T extends { id: number }> {
     list() {
         return this.http.get<T[]>(this.API_URL)
             .pipe(
-                delay(2000),
+                delay(500),
                 tap(console.log)
             );
     }

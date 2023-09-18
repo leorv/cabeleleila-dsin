@@ -27,8 +27,6 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 
-var allowOrigins = builder.Configuration.GetValue<string>("AllowOrigins");
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("NovaPolitica", app =>

@@ -1,1 +1,52 @@
-<p>client-edit works!</p>
+<form class="row g-3 needs-validation" novalidate [formGroup]="form">
+    
+    <div class="col-md-4">
+        <label for="name" class="form-label mt-3">Nome</label>
+        <input type="text" class="form-control" id="name" placeholder="Nome do cliente"
+        formControlName="name"
+        [ngClass]="{ 'is-invalid': submitted && hasError('name')}"
+        >
+        <div class="invalid-feedback" *ngIf="hasError('name')">
+            Informe um nome para o cliente.
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label for="lastname" class="form-label mt-3">Sobrenome</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Sobrenome do cliente"
+        formControlName="lastname"
+        [ngClass]="{ 'is-invalid': submitted && hasError('lastname')}"
+        >
+        <div class="invalid-feedback" *ngIf="hasError('lastname')">
+            Informe um sobrenome para o cliente.
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label for="email" class="form-label mt-3">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="E-mail do cliente"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && hasError('email')}"
+        >
+        <div class="invalid-feedback" *ngIf="hasError('email')">
+            Informe um e-mail válido para o cliente.
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label for="password" class="form-label mt-3">Senha</label>
+        <input type="password" class="form-control" id="password" placeholder="Senha do cliente"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && hasError('password')}"
+        >
+        <div class="invalid-feedback" *ngIf="hasError('password')">
+            Informe uma senha válida para o cliente.
+        </div>
+    </div>
+
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()">Salvar</button>
+        <button class="btn btn-default" type="submit" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

@@ -33,7 +33,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             *ngIf="!adminUser()"
           >
-            <a class="nav-link text-dark" [routerLink]="['/agenda']">Agenda</a>
+            <a class="nav-link text-dark" [routerLink]="['/agenda']" *ngIf="loggedUser()">Agenda</a>
           </li>
 
           <li
@@ -41,7 +41,7 @@
             [routerLinkActive]="['link-active']"
             *ngIf="adminUser()"
           >
-            <a class="nav-link text-dark" [routerLink]="['/agenda']"
+            <a class="nav-link text-dark" [routerLink]="['/gerenciar']"
               >Gerenciar</a
             >
           </li>
@@ -51,7 +51,7 @@
             [routerLinkActive]="['link-active']"
             *ngIf="adminUser()"
           >
-            <a class="nav-link text-dark" [routerLink]="['/agenda']"
+            <a class="nav-link text-dark" [routerLink]="['/clientes']"
               >Clientes</a
             >
           </li>
@@ -64,29 +64,20 @@
             <a class="nav-link text-dark" [routerLink]="['/entrar']">Entrar</a>
           </li>
 
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            *ngIf="loggedUser()"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/exit']" (click)="exit()">Sair</a>
+          </li>
+
           <!-- DropDown - Usuário logado -->
           <li class="nav-item dropdown" *ngIf="loggedUser()">
-            <a
-              class="nav-link clicavel text-dark dropdown-toggle"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              id="linkMenu"
-              data-toggle="dropdown"
-            >
+            <a class="nav-item text-dark">
               {{ user?.name }}
             </a>
-            <ul class="dropdown-menu" aria-labelledby="linkMenu">
-              <li
-                class="dropdown-item"
-                [routerLink]="['/exit']"
-                routerLinkActive="router-link-active"
-                role="menu"
-                (click)="exit()"
-              >
-                Sair
-              </li>
-            </ul>
+            
           </li>
         </ul>
       </div>
