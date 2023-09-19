@@ -1,0 +1,69 @@
+<div class="mb-3 row">
+  <label for="name" class="col-sm-2 col-form-label">Nome do serviço</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="name"
+      [value]="service.name"
+    />
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label for="price" class="col-sm-2 col-form-label">Preço</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="price"
+      [value]="service.price | currency: 'BRL'"
+    />
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label for="requestDate" class="col-sm-2 col-form-label">Data da solicitação</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="requestDate"
+      [value]="service.requestDate | date: 'dd/MM/yyyy'"
+    />
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label for="scheduledDate" class="col-sm-2 col-form-label">Data agendada</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="scheduledDate"
+      [value]="service.scheduledDate | date: 'dd/MM/yyyy'"
+    />
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label for="status" class="col-sm-2 col-form-label">Status</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="status"
+      [value]="service.status"
+    />
+  </div>
+</div>
+
+
+<div class="col-12">
+  <button class="btn btn-primary" type="submit" (click)="back()">Voltar</button>
+</div>

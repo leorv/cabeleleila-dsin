@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService extends CrudService<User> {
 
-    private _user!: User | null;
+    private _user: User | null = localStorage.getItem('authenticated_user') ? JSON.parse(localStorage.getItem('authenticated_user') || '') : null;
     apiURL: string = environment.API;
 
     constructor(protected override http: HttpClient) {
@@ -36,6 +36,14 @@ export class UserService extends CrudService<User> {
     session_clear() {
         localStorage.setItem('authenticated_user', '');
         this._user = null;
+    }
+
+    getUserId(): number {
+        const user = localStorage.getItem('authenticated_user');
+        if (user != null){
+            return JSON.parse(user).id;
+        }
+        return 0;
     }
 
     userVerify(user: User): Observable<User> {

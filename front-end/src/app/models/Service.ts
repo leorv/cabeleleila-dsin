@@ -3,7 +3,7 @@ export interface Service {
     name: string;
     price: number;
     requestDate: Date;
-    scheduleDate: Date;
+    scheduledDate: Date;
     status: string;
     userId: number;
 }

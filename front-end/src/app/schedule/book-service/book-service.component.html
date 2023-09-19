@@ -1,1 +1,66 @@
-<p>book-service works!</p>
+<form class="row g-3 needs-validation" novalidate [formGroup]="form">
+  <div class="col-md-4">
+    <label for="name" class="form-label mt-3">Nome do serviço</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Nome do serviço"
+      formControlName="name"
+      [ngClass]="{ 'is-invalid': submitted && hasError('name') }"
+    />
+    <div class="invalid-feedback" *ngIf="hasError('name')">
+      Informe um nome para o serviço. Ex: Corte de cabelo, escova, etc.
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <label for="price" class="form-label mt-3">Preço</label>
+    <select
+      class="form-control"
+      id="price"
+      placeholder="Preço"
+      formControlName="price"
+      [ngClass]="{ 'is-invalid': submitted && hasError('price') }"
+    >
+      <option value="20">Corte comum (R$ 20,00)</option>
+      <option value="30">Corte com banho (R$ 30,00)</option>
+      <option value="80">Escova (R$ 80,00)</option>
+      <option value="100">Pintura de cabelo (R$ 100,00)</option>
+      <option value="180">Progressiva sem formol (R$ 180,00)</option>
+    </select>
+    <div class="invalid-feedback" *ngIf="hasError('price')">
+      Selecione um valor.
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+    <label for="scheduledDate" class="form-label mt-3">Data marcada</label>
+    <!-- <p>{{ form.get('scheduledDate')?.value | date }}</p> -->
+    <input
+      [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+      id="scheduledDate"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Data marcada"
+      bsDatepicker
+      formControlName="scheduledDate"
+    />
+  </div>
+
+  <div class="alert alert-info" role="alert" *ngIf="sameWeeks">
+    Já existe um agendamento para a mesma semana, considere agendar no mesmo dia.
+    <button class="btn btn-outline-warning mb-1 btn-sm" type="submit" (click)="scheduleSameDay()">
+      Mudar a data de agendamento
+    </button>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button class="btn btn-default" type="submit" (click)="onCancel()">
+      Cancelar
+    </button>
+  </div>
+</form>

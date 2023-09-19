@@ -1,1 +1,74 @@
-<p>service-list works!</p>
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <h3>Lista de serviços</h3>
+            </div>
+            <div class="col text-end">
+                <!-- <button class="btn btn-primary" [routerLink]="['novo']">Novo serviço</button> -->
+                <button class="btn btn-secondary" (click)="onRefresh()">Recarregar serviços</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <!-- Fazemos o "as services" abaixo para evitar usar dois | async, ou seja,
+        para evitarmos usar dois Observables. Então reutilizamos essa variável
+         lá no ng-for.-->
+        <table class="table table-hover" *ngIf="services$ | async as services; else loading">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Serviço</th>
+                    <th>Cliente</th>
+                    <th>Data de cadastro</th>
+                    <th>Data agendada</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let service of services">
+                    <td>{{ service.id }}</td>
+                    <td> {{ service.name }} </td>
+                    <td> {{ client(service.id) }}</td>
+                    <td>{{ service.requestDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ service.scheduledDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ service.status }}</td>
+                    <td>
+                        <div class="text-end">
+                            <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(service.id)">
+                                Editar
+                            </button>
+                            <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(service)">
+                                Remover
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ng-template #loading>
+            <span>Carregando serviços...</span>
+        </ng-template>
+
+        <!-- <ng-template #loading>
+            <div *ngIf="error$ | async; else loadingNoError">
+                Erro ao carregar serviços. Tente novamente mais tarde.
+            </div>
+            <ng-template #loadingNoError>
+                <span>Carregando serviços...</span>
+            </ng-template>
+        </ng-template> -->
+
+    </div>
+</div>
+
+<ng-template #deleteModal>
+    <div class="modal-body text-center">
+        <p>Quer realmente remover este serviço?</p>
+        <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+        <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Não</button>
+    </div>
+</ng-template>

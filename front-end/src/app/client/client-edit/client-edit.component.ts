@@ -74,8 +74,8 @@ export class ClientEditComponent implements OnInit {
             let msgSuccess = 'Cliente criado com sucesso!';
             let msgError = 'Erro ao criar cliente.';
             if (this.form.value.id) {
-                msgSuccess = 'Curso atualizado com sucesso!';
-                msgError = 'Erro ao atualizar curso.';
+                msgSuccess = 'Cliente atualizado com sucesso!';
+                msgError = 'Erro ao atualizar cliente.';
             }
 
             this.userService.save(this.form.value).subscribe({
@@ -94,5 +94,6 @@ export class ClientEditComponent implements OnInit {
         this.submitted = false;
         this.form.reset();
         console.log('onCancel');
+        this.location.back();
     }
 }

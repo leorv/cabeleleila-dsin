@@ -16,10 +16,10 @@ export class CrudService<T extends { id: number }> {
         return new HttpHeaders().set('content-type', 'application/json');
     }
 
-    list() {
+    list(): Observable<T[]> {
         return this.http.get<T[]>(this.API_URL)
             .pipe(
-                delay(500),
+                delay(200),
                 tap(console.log)
             );
     }

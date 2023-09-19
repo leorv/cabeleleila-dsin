@@ -33,7 +33,12 @@
             [routerLinkActiveOptions]="{ exact: true }"
             *ngIf="!adminUser()"
           >
-            <a class="nav-link text-dark" [routerLink]="['/agenda']" *ngIf="loggedUser()">Agenda</a>
+            <a
+              class="nav-link text-dark"
+              [routerLink]="['/agenda']"
+              *ngIf="loggedUser()"
+              >Agenda</a
+            >
           </li>
 
           <li
@@ -69,15 +74,19 @@
             [routerLinkActive]="['link-active']"
             *ngIf="loggedUser()"
           >
-            <a class="nav-link text-dark" [routerLink]="['/exit']" (click)="exit()">Sair</a>
+            <a
+              class="nav-link text-dark"
+              [routerLink]="['/exit']"
+              (click)="exit()"
+              >Sair</a
+            >
           </li>
 
           <!-- DropDown - Usuário logado -->
-          <li class="nav-item dropdown" *ngIf="loggedUser()">
-            <a class="nav-item text-dark">
+          <li class="nav-item" *ngIf="loggedUser()">
+            <a class="nav-link text-dark">
               {{ user?.name }}
             </a>
-            
           </li>
         </ul>
       </div>

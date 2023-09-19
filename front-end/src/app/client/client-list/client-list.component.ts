@@ -37,9 +37,6 @@ export class ClientListComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        // this.cursoService.list().subscribe(
-        //     dados => this.cursos = dados
-        // );
         this.onRefresh();
     }
 
@@ -60,7 +57,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
     }
 
     handleError() {
-        this.alertModalService.showAlertDanger('Erro ao carregar cursos. Tente novamente mais tarde.');
+        this.alertModalService.showAlertDanger('Erro ao carregar clientes. Tente novamente mais tarde.');
     }
 
     onEdit(id: number) {
