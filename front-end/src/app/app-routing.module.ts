@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { NewUserComponent } from './login/new-user/new-user.component';
 
 const routes: Routes = [
+    {
+        path: 'novo-usuario',
+        component: NewUserComponent
+    },
     {
         path: 'agenda',
         loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule)

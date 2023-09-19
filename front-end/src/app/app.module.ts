@@ -8,8 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NewUserComponent } from './login/new-user/new-user.component';
 
 
 @NgModule({
@@ -17,12 +18,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         AppComponent,
         NavMenuComponent,
         HomeComponent,
-        LoginComponent
+        LoginComponent,
+        NewUserComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
+        ReactiveFormsModule,
         ModalModule.forRoot(),
         BrowserAnimationsModule,
         HttpClientModule

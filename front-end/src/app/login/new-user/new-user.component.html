@@ -1,3 +1,5 @@
+<h2>Novo cliente</h2>
+<hr>
 <form class="row g-3 needs-validation" novalidate [formGroup]="form">
     
     <div class="col-md-4">
@@ -7,7 +9,7 @@
         [ngClass]="{ 'is-invalid': submitted && hasError('name')}"
         >
         <div class="invalid-feedback" *ngIf="hasError('name')">
-            Informe um nome.
+            Informe um nome para o cliente.
         </div>
     </div>
 
@@ -18,7 +20,7 @@
         [ngClass]="{ 'is-invalid': submitted && hasError('lastname')}"
         >
         <div class="invalid-feedback" *ngIf="hasError('lastname')">
-            Informe um sobrenome.
+            Informe um sobrenome para o cliente.
         </div>
     </div>
 
@@ -29,7 +31,7 @@
         [ngClass]="{ 'is-invalid': submitted && hasError('email')}"
         >
         <div class="invalid-feedback" *ngIf="hasError('email')">
-            Informe um e-mail válido.
+            Informe um e-mail válido para o cliente.
         </div>
     </div>
 
@@ -40,7 +42,7 @@
         [ngClass]="{ 'is-invalid': submitted && hasError('password')}"
         >
         <div class="invalid-feedback" *ngIf="hasError('password')">
-            Informe uma senha válida.
+            Informe uma senha válida para o cliente.
         </div>
     </div>
 
